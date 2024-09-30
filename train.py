@@ -8,7 +8,7 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.model_selection import train_test_split
 
 # Importação da base
-spine = pd.read_csv(r'dorlombar\data\Dataset_spine.csv')
+spine = pd.read_csv(r'data\Dataset_spine.csv')
 
 # Balanceamento das classes
 sns.countplot(x=spine.Class_att)
@@ -46,7 +46,7 @@ model.fit(X_train, y_train)
 # Visualização gráfica da árvore de decisão
 plot_tree(model, feature_names=list(pd.DataFrame(X_train).columns.values),
           class_names=['Abnormal', 'Normal'], rounded=True, filled=True)
-plt.savefig(r'dorlombar\model\spine_tree.png', dpi=600)
+plt.savefig(r'model\spine_tree.png', dpi=600)
 plt.show()
 
 # métrica de treino e teste
@@ -68,5 +68,5 @@ ax.yaxis.set_ticklabels(['Abnormal', 'Normal'])
 plt.show()
 
 # Salvar modelo treinado dentro da pasta model
-joblib.dump(model, r'dorlombar\model\spine_model.pkl')
+joblib.dump(model, r'model\spine_model.pkl')
 print('Modelo salvo com sucesso!')
